@@ -31,22 +31,22 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_encryption
     }
 }
 
-resource "aws_s3_bucket_acl" "bucket_acl" {
-    for_each = var.bucket_name
-    bucket = aws_s3_bucket.bucket[each.key].id
-    acl    = "private"
+# resource "aws_s3_bucket_acl" "bucket_acl" {
+#     for_each = var.bucket_name
+#     bucket = aws_s3_bucket.bucket[each.key].id
+#     acl    = "private"
     
-}
+# }
 
-resource "aws_s3_bucket_public_access_block" "bucket_public_block" {
-    for_each = var.bucket_name
-    bucket = aws_s3_bucket.bucket[each.key].id
+# resource "aws_s3_bucket_public_access_block" "bucket_public_block" {
+#     for_each = var.bucket_name
+#     bucket = aws_s3_bucket.bucket[each.key].id
 
-    block_public_acls       = true
-    block_public_policy     = true
-    ignore_public_acls      = true
-    restrict_public_buckets = true
-}
+#     block_public_acls       = true
+#     block_public_policy     = true
+#     ignore_public_acls      = true
+#     restrict_public_buckets = true
+# }
 
 resource "aws_s3_object" "war" {
     for_each = var.bucket_name
