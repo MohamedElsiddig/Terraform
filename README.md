@@ -1,5 +1,6 @@
 # Terraform
 Terrafrom learning journey Code 
+
 I've created some demo infrastructure using aws provider, my directory structure looked like:
 
 0_remote_state: contains the code responsible for creating the s3 bucket to store terraform state (terraform statefile is a file contains all data about provisioned infrastructure)
